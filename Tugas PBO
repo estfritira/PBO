@@ -20,9 +20,7 @@ class player {
             System.out.println (this.nama + " berlari selama " + this.menit + " menit");
             System.out.println ("Akhirnya " + this.nama + " meninggal akibat virus");
         }
-        else {
-            System.out.println (this.nama + " masih terus berusaha kabur:(");
-        }
+        else System.out.printf("%s masih terus berusaha kabur:(%n", this.nama);
     }
 
     void menampilkan () {
