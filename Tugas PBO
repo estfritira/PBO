@@ -1,0 +1,78 @@
+package com.company;
+
+class player {
+    String nama;
+    int hp;
+    int speed;
+    int menit;
+
+    void kabur (){
+        System.out.println(" \n********* " + this.nama + " tergigit anjing rabies dan mulai berlari " +
+                "menjauhi anjing tersebut *********");
+    }
+
+    void mulailelah () {
+        if (this.hp == 1) {
+            System.out.println ("Nilai kesehatan " + this.nama + " = " + this.hp + " dan akan semakin berkurang");
+        }
+        else if (this.hp < 1) {
+            System.out.println ("Kesehatan " + this.nama + " semakin melemah karena virus yang menyebar dalam tubuh");
+            System.out.println (this.nama + " berlari selama " + this.menit + " menit");
+            System.out.println ("Akhirnya " + this.nama + " meninggal akibat virus");
+        }
+        else {
+            System.out.println (this.nama + " masih terus berusaha kabur:(");
+        }
+    }
+
+    void menampilkan () {
+        System.out.printf("\n--- INFORMASI KORBAN TERGIGIT ---\nNama korban : %s\nSpeed : %dm/menit\nHealth : %d %n", this.nama, this.speed, this.hp);
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+	    player Janto = new player ();
+	    Janto.nama = "Janto";
+	    Janto.speed = 5;
+	    Janto.hp = 8;
+	    Janto.menampilkan();
+	    Janto.kabur();
+	    do {
+	        Janto.hp--;
+	        Janto.menit+=Janto.speed;
+	        Janto.mulailelah();
+        } while (Janto.hp>0);
+
+        player Maya = new player ();
+        Maya.nama = "Maya";
+        Maya.speed = 4;
+        Maya.hp = 6;
+        System.out.printf("\n|| Setelah %s meninggal, anjing kemudian menyerang %s ||%n", Janto.nama, Maya.nama);
+        Maya.menampilkan();
+        Maya.kabur();
+        do {
+            Maya.hp--;
+            Maya.menit+=Maya.speed;
+            Maya.mulailelah();
+        } while (Maya.hp>0);
+
+        player Giant = new player ();
+        Giant.nama = "Giant";
+        Giant.speed = 6;
+        Giant.hp = 9;
+        System.out.printf("\n|| Setelah %s meninggal, anjing kemudian menyerang %s ||%n", Maya.nama, Giant.nama);
+        Giant.menampilkan();
+        Giant.kabur();
+        do {
+            Giant.hp--;
+            Giant.menit+=Giant.speed;
+            Giant.mulailelah();
+        } while (Giant.hp>0);
+
+        int totmenit = Janto.menit + Maya.menit + Giant.menit;
+        System.out.println("\nLama mereka berlari setelah di total yaitu selama " + totmenit + " menit"+
+                " \nPERMAINAN BERAKHIR");
+    }
+}
